@@ -1,0 +1,9 @@
+[package]
+name = "cfdi_use_mx"
+version = "0.1.0"
+edition = "2021"
+authors = ["johnteper <git@johnteper.me>"]
+description = "Mexican CFDI use"
+homepage = "https://github.com/jonhteper/cfdi_use_mx"
+license = "MIT"
+repository = "https://github.com/jonhteper/cfdi_use_mx"
