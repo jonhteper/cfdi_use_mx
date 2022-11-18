@@ -2,7 +2,7 @@
 //!
 //! Crate sencillo para el uso de CFDI en México
 
-#[derive(Debug, Clone, PartialEq)]
+#[derive(Debug, Clone, PartialEq, Eq)]
 pub enum CFDIUse {
     G01,
     G02,
@@ -30,7 +30,7 @@ pub enum CFDIUse {
 
 impl ToString for CFDIUse {
     fn to_string(&self) -> String {
-        return match self {
+        match self {
             CFDIUse::G01 => "Adquisición de mercancías".to_string(),
             CFDIUse::G02 => "Devoluciones, descuentos o bonificaciones".to_string(),
             CFDIUse::G03 => "Gastos en general".to_string(),
@@ -53,13 +53,13 @@ impl ToString for CFDIUse {
             CFDIUse::D09 => "Depósitos en cuentas para el ahorro, primas que tengan como base planes de pensiones".to_string(),
             CFDIUse::D010 => "Pagos por servicios educativos (colegiaturas)".to_string(),
             CFDIUse::P01 => "Por definir".to_string(),
-        };
+        }
     }
 }
 
 impl From<&str> for CFDIUse {
     fn from(str: &str) -> Self {
-        return match str {
+        match str {
             "Adquisición de mercancías" => Self::G01,
             "Devoluciones, descuentos o bonificaciones" => Self::G02,
             "Gastos en general" => Self::G03,
@@ -83,7 +83,7 @@ impl From<&str> for CFDIUse {
             "Pagos por servicios educativos (colegiaturas)" => Self::D010,
             "Por definir" => Self::P01,
             _ => Self::default(),
-        };
+        }
     }
 }
 
