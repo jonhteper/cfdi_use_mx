@@ -1,6 +1,6 @@
 [package]
 name = "cfdi_use_mx"
-version = "0.1.1"
+version = "0.2.0"
 edition = "2021"
 authors = ["johnteper <git@johnteper.me>"]
 description = "Mexican CFDI use"
