@@ -20,13 +20,14 @@ pub(crate) const CFDI_USE_D01_TEXT: &str = "Horarios médicos, dentales y gastos
 pub(crate) const CFDI_USE_D02_TEXT: &str = "Gastos médicos por incapacidad o discapacidad";
 pub(crate) const CFDI_USE_D03_TEXT: &str = "Gastos funerales";
 pub(crate) const CFDI_USE_D04_TEXT: &str = "Donativos";
-pub(crate) const CFDI_USE_D05_TEXT: &str = "Intereses reales efectivamente pagados por créditos hipotecarios (casa habitación)";
+pub(crate) const CFDI_USE_D05_TEXT: &str =
+    "Intereses reales efectivamente pagados por créditos hipotecarios (casa habitación)";
 pub(crate) const CFDI_USE_D06_TEXT: &str = "Aportaciones voluntarias al SAR";
 pub(crate) const CFDI_USE_D07_TEXT: &str = "Primas por seguros de gastos médicos";
 pub(crate) const CFDI_USE_D08_TEXT: &str = "Gastos de transportación escolar obligatoria";
-pub(crate) const CFDI_USE_D09_TEXT: &str = "Depósitos en cuentas para el ahorro, primas que tengan como base planes de pensiones";
+pub(crate) const CFDI_USE_D09_TEXT: &str =
+    "Depósitos en cuentas para el ahorro, primas que tengan como base planes de pensiones";
 pub(crate) const CFDI_USE_D10_TEXT: &str = "Pagos por servicios educativos (colegiaturas)";
-
 
 #[cfg(test)]
 mod tests {
