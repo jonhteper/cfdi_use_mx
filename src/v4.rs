@@ -38,37 +38,102 @@ pub enum CFDIUse {
 
 impl Display for CFDIUse {
     fn fmt(&self, f: &mut Formatter<'_>) -> std::fmt::Result {
-        match self {
-            CFDIUse::G01 => write!(f, "{}", CFDI_USE_G01_TEXT),
-            CFDIUse::G02 => write!(f, "{}", CFDI_USE_G02_TEXT),
-            CFDIUse::G03 => write!(f, "{}", CFDI_USE_G03_TEXT),
-            CFDIUse::I01 => write!(f, "{}", CFDI_USE_I01_TEXT),
-            CFDIUse::I02 => write!(f, "{}", CFDI_USE_I02_TEXT),
-            CFDIUse::I03 => write!(f, "{}", CFDI_USE_I03_TEXT),
-            CFDIUse::I04 => write!(f, "{}", CFDI_USE_I04_TEXT),
-            CFDIUse::I05 => write!(f, "{}", CFDI_USE_I05_TEXT),
-            CFDIUse::I06 => write!(f, "{}", CFDI_USE_I06_TEXT),
-            CFDIUse::I07 => write!(f, "{}", CFDI_USE_I07_TEXT),
-            CFDIUse::I08 => write!(f, "{}", CFDI_USE_I08_TEXT),
-            CFDIUse::D01 => write!(f, "{}", CFDI_USE_D01_TEXT),
-            CFDIUse::D02 => write!(f, "{}", CFDI_USE_D02_TEXT),
-            CFDIUse::D03 => write!(f, "{}", CFDI_USE_D03_TEXT),
-            CFDIUse::D04 => write!(f, "{}", CFDI_USE_D04_TEXT),
-            CFDIUse::D05 => write!(f, "{}", CFDI_USE_D05_TEXT),
-            CFDIUse::D06 => write!(f, "{}", CFDI_USE_D06_TEXT),
-            CFDIUse::D07 => write!(f, "{}", CFDI_USE_D07_TEXT),
-            CFDIUse::D08 => write!(f, "{}", CFDI_USE_D08_TEXT),
-            CFDIUse::D09 => write!(f, "{}", CFDI_USE_D09_TEXT),
-            CFDIUse::D10 => write!(f, "{}", CFDI_USE_D10_TEXT),
-            CFDIUse::CP01 => write!(f, "Pagos"),
-            CFDIUse::CN01 => write!(f, "Nómina"),
-            CFDIUse::S01 => write!(f, "Sin efectos fiscales"),
-        }
+        write!(f, "{}", self.as_str())
     }
 }
 
 impl From<&str> for CFDIUse {
     fn from(str: &str) -> Self {
+        match str {
+            "G01" => Self::G01,
+            "G02" => Self::G02,
+            "G03" => Self::G03,
+            "I01" => Self::I01,
+            "I02" => Self::I02,
+            "I03" => Self::I03,
+            "I04" => Self::I04,
+            "I05" => Self::I05,
+            "I06" => Self::I06,
+            "I07" => Self::I07,
+            "I08" => Self::I08,
+            "D01" => Self::D01,
+            "D02" => Self::D02,
+            "D03" => Self::D03,
+            "D04" => Self::D04,
+            "D05" => Self::D05,
+            "D06" => Self::D06,
+            "D07" => Self::D07,
+            "D08" => Self::D08,
+            "D09" => Self::D09,
+            "D10" => Self::D10,
+            "CP01" => Self::CP01,
+            "CN01" => Self::CN01,
+            "S01" => Self::S01,
+            _ => Self::default(),
+        }
+    }
+}
+
+impl CFDIUse {
+    pub fn description(&self) -> &'static str {
+        match self {
+            CFDIUse::G01 => CFDI_USE_G01_TEXT,
+            CFDIUse::G02 => CFDI_USE_G02_TEXT,
+            CFDIUse::G03 => CFDI_USE_G03_TEXT,
+            CFDIUse::I01 => CFDI_USE_I01_TEXT,
+            CFDIUse::I02 => CFDI_USE_I02_TEXT,
+            CFDIUse::I03 => CFDI_USE_I03_TEXT,
+            CFDIUse::I04 => CFDI_USE_I04_TEXT,
+            CFDIUse::I05 => CFDI_USE_I05_TEXT,
+            CFDIUse::I06 => CFDI_USE_I06_TEXT,
+            CFDIUse::I07 => CFDI_USE_I07_TEXT,
+            CFDIUse::I08 => CFDI_USE_I08_TEXT,
+            CFDIUse::D01 => CFDI_USE_D01_TEXT,
+            CFDIUse::D02 => CFDI_USE_D02_TEXT,
+            CFDIUse::D03 => CFDI_USE_D03_TEXT,
+            CFDIUse::D04 => CFDI_USE_D04_TEXT,
+            CFDIUse::D05 => CFDI_USE_D05_TEXT,
+            CFDIUse::D06 => CFDI_USE_D06_TEXT,
+            CFDIUse::D07 => CFDI_USE_D07_TEXT,
+            CFDIUse::D08 => CFDI_USE_D08_TEXT,
+            CFDIUse::D09 => CFDI_USE_D09_TEXT,
+            CFDIUse::D10 => CFDI_USE_D10_TEXT,
+            CFDIUse::CP01 => "Pagos",
+            CFDIUse::CN01 => "Nómina",
+            CFDIUse::S01 => "Sin efectos fiscales",
+        }
+    }
+
+    pub fn as_str(&self) -> &'static str {
+        match self {
+            CFDIUse::G02 => "G02",
+            CFDIUse::G01 => "G01",
+            CFDIUse::G03 => "G03",
+            CFDIUse::I01 => "I01",
+            CFDIUse::I02 => "I02",
+            CFDIUse::I03 => "I03",
+            CFDIUse::I04 => "I04",
+            CFDIUse::I05 => "I05",
+            CFDIUse::I06 => "I06",
+            CFDIUse::I07 => "I07",
+            CFDIUse::I08 => "I08",
+            CFDIUse::D01 => "D01",
+            CFDIUse::D02 => "D02",
+            CFDIUse::D03 => "D03",
+            CFDIUse::D04 => "D04",
+            CFDIUse::D05 => "D05",
+            CFDIUse::D06 => "D06",
+            CFDIUse::D07 => "D07",
+            CFDIUse::D08 => "D08",
+            CFDIUse::D09 => "D09",
+            CFDIUse::D10 => "D10",
+            CFDIUse::CP01 => "CP01",
+            CFDIUse::CN01 => "CN01",
+            CFDIUse::S01 => "S01",
+        }
+    }
+
+    pub fn from_description(str: &str) -> Self {
         match str {
             CFDI_USE_G01_TEXT => Self::G01,
             CFDI_USE_G02_TEXT => Self::G02,
@@ -95,37 +160,6 @@ impl From<&str> for CFDIUse {
             "Nómina" => Self::CN01,
             "Sin efectos fiscales" => Self::S01,
             _ => Self::default(),
-        }
-    }
-}
-
-impl CFDIUse {
-    pub fn as_str(&self) -> &'static str {
-        match self {
-            CFDIUse::G01 => CFDI_USE_G01_TEXT,
-            CFDIUse::G02 => CFDI_USE_G02_TEXT,
-            CFDIUse::G03 => CFDI_USE_G03_TEXT,
-            CFDIUse::I01 => CFDI_USE_I01_TEXT,
-            CFDIUse::I02 => CFDI_USE_I02_TEXT,
-            CFDIUse::I03 => CFDI_USE_I03_TEXT,
-            CFDIUse::I04 => CFDI_USE_I04_TEXT,
-            CFDIUse::I05 => CFDI_USE_I05_TEXT,
-            CFDIUse::I06 => CFDI_USE_I06_TEXT,
-            CFDIUse::I07 => CFDI_USE_I07_TEXT,
-            CFDIUse::I08 => CFDI_USE_I08_TEXT,
-            CFDIUse::D01 => CFDI_USE_D01_TEXT,
-            CFDIUse::D02 => CFDI_USE_D02_TEXT,
-            CFDIUse::D03 => CFDI_USE_D03_TEXT,
-            CFDIUse::D04 => CFDI_USE_D04_TEXT,
-            CFDIUse::D05 => CFDI_USE_D05_TEXT,
-            CFDIUse::D06 => CFDI_USE_D06_TEXT,
-            CFDIUse::D07 => CFDI_USE_D07_TEXT,
-            CFDIUse::D08 => CFDI_USE_D08_TEXT,
-            CFDIUse::D09 => CFDI_USE_D09_TEXT,
-            CFDIUse::D10 => CFDI_USE_D10_TEXT,
-            CFDIUse::CP01 => "Pagos",
-            CFDIUse::CN01 => "Nómina",
-            CFDIUse::S01 => "Sin efectos fiscales",
         }
     }
 }

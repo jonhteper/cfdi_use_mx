@@ -44,17 +44,17 @@ mod tests {
 
     #[test]
     fn default() {
-        let cfdi_use = v3::CFDIUse::from("Gastos en general");
+        let cfdi_use = v3::CFDIUse::from("G03");
 
         assert_eq!(cfdi_use, v3::CFDIUse::default());
         assert_eq!(cfdi_use, v3::CFDIUse::G03);
     }
 
     #[test]
-    fn pagos_works() {
-        let cfdi_use = v4::CFDIUse::from("Pagos");
+    fn cfdi_from_description() {
+        let cfdi_use = v4::CFDIUse::from_description("Pagos");
         assert_eq!(cfdi_use, v4::CFDIUse::CP01);
-        assert_eq!("Pagos", v4::CFDIUse::CP01.as_str());
+        assert_eq!("Pagos", v4::CFDIUse::CP01.description());
     }
 
     #[test]
