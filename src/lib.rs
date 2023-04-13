@@ -5,6 +5,9 @@
 pub mod v3;
 pub mod v4;
 
+#[cfg(feature = "serde")]
+pub mod serde_feature;
+
 pub(crate) const CFDI_USE_G01_TEXT: &str = "Adquisición de mercancías";
 pub(crate) const CFDI_USE_G02_TEXT: &str = "Devoluciones, descuentos o bonificaciones";
 pub(crate) const CFDI_USE_G03_TEXT: &str = "Gastos en general";

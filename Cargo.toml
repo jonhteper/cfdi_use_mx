@@ -7,3 +7,14 @@ description = "Mexican CFDI use"
 homepage = "https://github.com/jonhteper/cfdi_use_mx"
 license = "MIT"
 repository = "https://github.com/jonhteper/cfdi_use_mx"
+
+[dependencies]
+serde = { version = "1", optional = true }
+
+[dev-dependencies]
+serde_json = { version = "1" }
+serde = { version = "1", features = ["derive"] }
+
+[features]
+serde = ["dep:serde"]
+default = ["serde"]

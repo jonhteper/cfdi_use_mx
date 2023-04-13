@@ -5,7 +5,7 @@ use crate::{
     CFDI_USE_I03_TEXT, CFDI_USE_I04_TEXT, CFDI_USE_I05_TEXT, CFDI_USE_I06_TEXT, CFDI_USE_I07_TEXT,
     CFDI_USE_I08_TEXT,
 };
-#[deprecated(since="1.0.0", note="please use `v4::CFDIUse` instead")]
+#[deprecated(since = "1.0.0", note = "please use `v4::CFDIUse` instead")]
 #[derive(Debug, Copy, Clone, PartialEq, Eq)]
 pub enum CFDIUse {
     G01,
@@ -87,7 +87,6 @@ impl CFDIUse {
             _ => Self::default(),
         }
     }
-
 }
 
 impl ToString for CFDIUse {
