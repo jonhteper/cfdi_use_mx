@@ -1,6 +1,6 @@
 [package]
 name = "cfdi_use_mx"
-version = "1.0.0"
+version = "1.1.0"
 edition = "2021"
 authors = ["johnteper <git@johnteper.me>"]
 description = "Mexican CFDI use"
@@ -9,6 +9,8 @@ license = "MIT"
 repository = "https://github.com/jonhteper/cfdi_use_mx"
 
 [dependencies]
+parse-display = "0.10.0"
+parse-display-derive = "0.10.0"
 serde = { version = "1", optional = true }
 
 [dev-dependencies]

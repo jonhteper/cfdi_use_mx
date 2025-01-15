@@ -1,3 +1,5 @@
+use parse_display_derive::{Display, FromStr};
+
 use crate::{
     CFDI_USE_D01_TEXT, CFDI_USE_D02_TEXT, CFDI_USE_D03_TEXT, CFDI_USE_D04_TEXT, CFDI_USE_D05_TEXT,
     CFDI_USE_D06_TEXT, CFDI_USE_D07_TEXT, CFDI_USE_D08_TEXT, CFDI_USE_D09_TEXT, CFDI_USE_D10_TEXT,
@@ -5,10 +7,9 @@ use crate::{
     CFDI_USE_I03_TEXT, CFDI_USE_I04_TEXT, CFDI_USE_I05_TEXT, CFDI_USE_I06_TEXT, CFDI_USE_I07_TEXT,
     CFDI_USE_I08_TEXT,
 };
-use std::fmt::{Display, Formatter};
-use std::ops::Deref;
+use std::{ops::Deref, str::FromStr};
 
-#[derive(Debug, Copy, Clone, PartialEq, Eq)]
+#[derive(Debug, Copy, Clone, PartialEq, Eq, Display, FromStr)]
 pub enum CFDIUse {
     G01,
     G02,
@@ -36,41 +37,9 @@ pub enum CFDIUse {
     S01,
 }
 
-impl Display for CFDIUse {
-    fn fmt(&self, f: &mut Formatter<'_>) -> std::fmt::Result {
-        write!(f, "{}", self.as_str())
-    }
-}
-
 impl From<&str> for CFDIUse {
     fn from(str: &str) -> Self {
-        match str {
-            "G01" => Self::G01,
-            "G02" => Self::G02,
-            "G03" => Self::G03,
-            "I01" => Self::I01,
-            "I02" => Self::I02,
-            "I03" => Self::I03,
-            "I04" => Self::I04,
-            "I05" => Self::I05,
-            "I06" => Self::I06,
-            "I07" => Self::I07,
-            "I08" => Self::I08,
-            "D01" => Self::D01,
-            "D02" => Self::D02,
-            "D03" => Self::D03,
-            "D04" => Self::D04,
-            "D05" => Self::D05,
-            "D06" => Self::D06,
-            "D07" => Self::D07,
-            "D08" => Self::D08,
-            "D09" => Self::D09,
-            "D10" => Self::D10,
-            "CP01" => Self::CP01,
-            "CN01" => Self::CN01,
-            "S01" => Self::S01,
-            _ => Self::default(),
-        }
+        CFDIUse::from_str(str).unwrap_or_default()
     }
 }
 
@@ -174,5 +143,19 @@ impl Deref for CFDIUse {
     type Target = str;
     fn deref(&self) -> &Self::Target {
         self.as_str()
+    }
+}
+
+#[cfg(test)]
+mod test {
+    use super::*;
+
+    #[test]
+    fn parsing_works() {
+        let from_str = "G03".parse();
+        assert_eq!(from_str, Ok(CFDIUse::default()));
+
+        let as_string = CFDIUse::D06.to_string();
+        assert_eq!(as_string.as_str(), "D06");
     }
 }
