@@ -9,10 +9,11 @@ use crate::{
 };
 use std::{ops::Deref, str::FromStr};
 
-#[derive(Debug, Copy, Clone, PartialEq, Eq, Display, FromStr)]
+#[derive(Debug, Copy, Clone, PartialEq, Eq, Display, FromStr, Default)]
 pub enum CFDIUse {
     G01,
     G02,
+    #[default]
     G03,
     I01,
     I02,
@@ -73,6 +74,7 @@ impl CFDIUse {
         }
     }
 
+    #[deprecated(since = "1.1.0", note = "Use CFDIUse::to_string instead")]
     pub fn as_str(&self) -> &'static str {
         match self {
             CFDIUse::G02 => "G02",
@@ -130,12 +132,6 @@ impl CFDIUse {
             "Sin efectos fiscales" => Self::S01,
             _ => Self::default(),
         }
-    }
-}
-
-impl Default for CFDIUse {
-    fn default() -> Self {
-        Self::G03
     }
 }
 

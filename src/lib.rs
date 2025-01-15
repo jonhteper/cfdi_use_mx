@@ -2,6 +2,8 @@
 //!
 //! Biblioteca para el uso de CFDI en México
 
+#![allow(deprecated)]
+
 pub mod v3;
 pub mod v4;
 

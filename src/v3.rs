@@ -60,7 +60,7 @@ impl CFDIUse {
         }
     }
 
-    fn from_description(str: &str) -> Self {
+    pub fn from_description(str: &str) -> Self {
         match str {
             CFDI_USE_G01_TEXT => Self::G01,
             CFDI_USE_G02_TEXT => Self::G02,
