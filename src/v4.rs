@@ -68,36 +68,6 @@ impl CFDIUse {
         }
     }
 
-    #[deprecated(since = "1.1.0", note = "Use CFDIUse::to_string instead")]
-    pub fn as_str(&self) -> &'static str {
-        match self {
-            CFDIUse::G02 => "G02",
-            CFDIUse::G01 => "G01",
-            CFDIUse::G03 => "G03",
-            CFDIUse::I01 => "I01",
-            CFDIUse::I02 => "I02",
-            CFDIUse::I03 => "I03",
-            CFDIUse::I04 => "I04",
-            CFDIUse::I05 => "I05",
-            CFDIUse::I06 => "I06",
-            CFDIUse::I07 => "I07",
-            CFDIUse::I08 => "I08",
-            CFDIUse::D01 => "D01",
-            CFDIUse::D02 => "D02",
-            CFDIUse::D03 => "D03",
-            CFDIUse::D04 => "D04",
-            CFDIUse::D05 => "D05",
-            CFDIUse::D06 => "D06",
-            CFDIUse::D07 => "D07",
-            CFDIUse::D08 => "D08",
-            CFDIUse::D09 => "D09",
-            CFDIUse::D10 => "D10",
-            CFDIUse::CP01 => "CP01",
-            CFDIUse::CN01 => "CN01",
-            CFDIUse::S01 => "S01",
-        }
-    }
-
     pub fn from_description(str: &str) -> Self {
         use CFDIUse::*;
         match str {
