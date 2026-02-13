@@ -130,13 +130,6 @@ impl CFDIUse {
     }
 }
 
-impl Deref for CFDIUse {
-    type Target = str;
-    fn deref(&self) -> &Self::Target {
-        self.as_str()
-    }
-}
-
 #[cfg(test)]
 mod test {
     use super::*;

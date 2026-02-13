@@ -10,7 +10,7 @@ impl Serialize for CFDIUse {
     where
         S: serde::Serializer,
     {
-        serializer.serialize_str(self.as_str())
+        serializer.serialize_str(&self.to_string())
     }
 }
 
