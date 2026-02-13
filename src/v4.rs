@@ -9,7 +9,7 @@ use crate::{
 };
 use std::{ops::Deref, str::FromStr};
 
-#[derive(Debug, Copy, Clone, PartialEq, Eq, Display, FromStr, Default)]
+#[derive(Debug, Copy, Clone, PartialEq, Eq, Display, FromStr, Default, Hash)]
 pub enum CFDIUse {
     G01,
     G02,
