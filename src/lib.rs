@@ -1,6 +1,4 @@
-//! Simple crate for CFDI use in Mexico
-//!
-//! Biblioteca para el uso de CFDI en México
+#![doc = include_str!("../README.md")]
 
 pub mod v4;
 pub use v4::*;
