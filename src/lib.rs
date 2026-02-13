@@ -3,6 +3,7 @@
 //! Biblioteca para el uso de CFDI en México
 
 pub mod v4;
+pub use v4::*;
 
 #[cfg(feature = "serde")]
 pub mod serde_feature;
